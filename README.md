@@ -37,7 +37,7 @@ claude plugin install aip@ai-producer-plugins --scope user
 ```
 
 Start a new Claude Code session, run `/mcp`, choose `plugin:aip:ai-producer` and sign in with your OpusClip
-account in the browser. AI Producer in coding agents is in beta and open to a limited set of accounts; if sign-in
+account in the browser. AI Producer in coding agents is open to a limited set of accounts; if sign-in
 is refused, that is why.
 
 **2. Install this plugin**
@@ -73,6 +73,32 @@ Python 3.9+ (standard library only). Node 18+ only if you re-render the README a
 
 Or say it in one line: *"Scan Kai Cenat's last GTA 6 VOD, cut the 3 best moments 9:16 and open them in AI Producer
 with captions."*
+
+### One-paste prompt
+
+After steps 1-3, paste this into Claude Code to run the whole flow in one go. Edit the [brackets] or keep the defaults:
+
+```text
+Run the whole gtavi-aiproducer flow:
+- Stream: [a VOD link, or "find today's biggest GTA 6 stream"]
+- Clips: [3]
+- Captions: [pop] (or karaoke, single, plain), no reference style
+- Campaign brief: [none]
+- Export MP4s: [no]
+
+1. /gtavi-aiproducer:aip-project steps 0-1: check AI Producer sign-in and price. Stop if it fails.
+2. /gtavi-aiproducer:streams if I gave no link; take the top finished VOD.
+3. /gtavi-aiproducer:vodcut on it.
+4. /gtavi-aiproducer:pick-moments, then wait for my OK on the picks.
+5. /gtavi-aiproducer:cut-and-frame on those picks.
+6. /gtavi-aiproducer:aip-project and /gtavi-aiproducer:aip-captions; give me the project links.
+7. /gtavi-aiproducer:aip-export if Export MP4s is yes.
+8. /gtavi-aiproducer:hooks, /gtavi-aiproducer:post-copy and /gtavi-aiproducer:clip-rules per clip.
+
+Before spending OpusClip credits, tell me the price and wait for my OK. Never post or submit.
+```
+
+It runs the steps in order, stops for your OK on the picks and before it spends OpusClip credits, and never posts for you.
 
 ## How it works
 
@@ -210,7 +236,7 @@ composes the 1080x1920 frame before upload.
 **Can I paste a Twitch or Kick link into AI Producer?** Its link download takes YouTube, TikTok and Instagram only,
 with no time range. Download the window locally (`vodcut.py cut` handles YouTube, Twitch and Kick) and upload it.
 
-**Is it free?** The scan and the cut run on your machine. AI Producer is free to start and in beta; the planning runs
+**Is it free?** The scan and the cut run on your machine. AI Producer is free to start; the planning runs
 on your Claude plan and some AI Producer steps can use OpusClip credits. The skills read the live price with
 `get_pricing` before anything runs and say so when a step costs.
 
