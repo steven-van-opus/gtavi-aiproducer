@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/hero.png" alt="Slate, the gtavi-aiproducer mascot, a clapperboard in sunglasses with a megaphone, next to a vertical clip with a facecam band, a night-drive gameplay band and a NO WAY caption" width="460">
+<img src="docs/hero.png" alt="The GTA VI logo with two pixel-art buddies peeking over its top edge and tossing cash: a terracotta one in shades with an antenna spark, and a terminal window with a prompt for a face" width="430">
 
 # gtavi-aiproducer
 
@@ -234,15 +234,17 @@ other: both ship a skill named `vodcut`, so with both installed a bare `/vodcut`
 official plugin (that's `aip@ai-producer-plugins`, which this one depends on), but it isn't independent of OpusClip
 either: steven-van-opus made it for OpusClip's GTA 6 launch campaign. It's open source and uses AI Producer through the
 official `aip` plugin. It is not affiliated with or endorsed by Rockstar Games, Take-Two Interactive, IShowSpeed or
-Kai Cenat. The art is original: no Rockstar logos, key art or game wordmarks.
+Kai Cenat. The GTA VI logo in the header art is Take-Two Interactive's trademark, shown only to identify the game; the
+pixel buddies and the rest of the art are original.
 
 ## Disclaimer
 
 **Who made this.** steven-van-opus made this plugin for OpusClip as part of OpusClip's GTA 6 launch campaign, so it is not an
 independent review or recommendation of OpusClip or AI Producer.
 
-Not affiliated with or endorsed by Rockstar Games, Take-Two Interactive, IShowSpeed or Kai Cenat. Grand Theft Auto and
-GTA are trademarks of Take-Two Interactive; the art in this repo is original. Stream footage belongs to its owners:
+Not affiliated with or endorsed by Rockstar Games, Take-Two Interactive, IShowSpeed or Kai Cenat. Grand Theft Auto,
+GTA and the GTA VI logo in the header art are trademarks of Take-Two Interactive; the rest of the art is original.
+Stream footage belongs to its owners:
 credit them, keep clips short and transformed, follow Rockstar's video policy and every campaign's brief, and take
 a clip down when asked. AI Producer and OpusClip are products of OpusClip; this plugin uses them through the
 official `aip` plugin and does not change how they work. Nothing here is legal or financial advice. Earnings depend
