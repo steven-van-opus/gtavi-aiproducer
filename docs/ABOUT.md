@@ -2,7 +2,7 @@
 
 **Description** (paste into the repo's About field, 350 characters max):
 
-> Claude Code plugin that turns GTA 6 streams into captioned 1080x1920 clips with AI Producer as the harness: scan whole VODs locally, pick and cut the moments 9:16, open each in AI Producer for word-by-word captions, countdowns and export, then post with credits.
+> Claude Code plugin with a one-paste prompt for turning GTA 6 VODs into captioned 1080x1920 clips. Scan and cut moments locally, then open each edit in AI Producer for word-by-word captions, countdowns and export. Includes hooks, post copy and streamer credits.
 
 **Website:** https://producer.opus.pro
 

@@ -15,7 +15,7 @@ Ask me for, in one message:
 1. The streamers (default: Kai Cenat and IShowSpeed, mixed) and the window: "the first 24 hours of GTA 6", "this week", or the VOD links I already have.
 2. The angle for the title, picked from: "5 GTA 6 moments chat lost it", "5 things streamers found on day one", "5 GTA 6 moments nobody saw coming", "5 craziest GTA 6 stream moments".
 3. The page it's for and its campaign brief, if any (credit line, hashtags, length rules), so every item follows it.
-4. Whether AI Producer is connected (the aip plugin, signed in through /mcp). It's in beta for a limited set of accounts, so check the sign-in before you cut anything.
+4. Whether AI Producer is connected (the aip plugin, signed in through /mcp). It's open to a limited set of accounts, so check the sign-in before you cut anything.
 If I have no VODs, find the longest finished GTA 6 streams of the last 48 hours and pitch me 3 angles with why each one is hot today. Never copy another channel's order, titles or edit.
 </inputs>
 
@@ -47,7 +47,7 @@ Tools this skill calls (Claude Code names): `mcp__plugin_aip_ai-producer__list_w
 
 Scripts: `${CLAUDE_SKILL_DIR}/../../scripts/`. Work in `gtavi/countdowns/<slug>/`.
 
-0. **Connection first.** AI Producer in coding agents is in beta for a limited set of accounts. Run the sign-in
+0. **Connection first.** AI Producer in coding agents is open to a limited set of accounts. Run the sign-in
    and pricing check from `aip-project` (step 0-1) before cutting anything; if the account is refused, stop and
    say so instead of cutting footage that can't be opened.
 1. **Moments.** `streams` -> `vodcut` for each VOD -> `pick-moments` with 10-14 s cuts. Credit and platform for
