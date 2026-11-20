@@ -25,11 +25,13 @@ project) and stop: never fetch a model or a binary yourself without their go-ahe
 python3 -I "${CLAUDE_SKILL_DIR}/../../scripts/vodcut.py" scan "$ARGUMENTS" gtavi/runs/<slug> --jobs 16
 ```
 
-- YouTube post-live VODs come down as 2-second fragments through `ytfrag.py` (parallel, resumable, signed
-  URLs rotated). Twitch and Kick VODs go through yt-dlp. A local file is read directly.
+- Before it downloads, `vodcut.py` asks yt-dlp how YouTube serves the VOD (it prints the answer). Post-live
+  VODs still served as 2-second fragments go through `ytfrag.py` (parallel, resumable, signed URLs rotated);
+  processed VODs (YouTube processes them later; the launch-day VODs took about a day) go through yt-dlp,
+  like Twitch and Kick. A local file is read directly.
 - A day-long VOD takes a while: run it in the background and report progress from its log. Re-running the
   same command resumes: finished transcript chunks are skipped.
-- Optional: start transcribing before the download ends with
+- Optional, only while the VOD is still served as fragments: start transcribing before the download ends with
   `scan_frags.py <OUT>/audio.m4a.raw.frags139 <OUT>/scan <OUT>/audio.m4a --chunks <hours*3>`.
 
 Outputs in `<OUT>/scan/`: `moments.md` (20 distinct moments, best first, with suggested in/out),
@@ -67,5 +69,8 @@ Pass the verified moments to `pick-moments`. Report the run with:
 python3 -I "${CLAUDE_SKILL_DIR}/../../scripts/vodcut.py" report gtavi/runs/<slug>
 ```
 
-It prints hours scanned, moments found and wall time; the API cost is $0 because everything ran locally.
+It prints hours scanned, 30-second windows ranked, distinct moments (plus those `find --add` added) and the
+wall time; the API cost is $0 because everything ran locally. The wall time is only printed for a folder whose
+first scan fetched the audio itself and ran start to finish: a resumed or seeded folder says why it has none.
+Quote these numbers as they are printed, never estimated.
 Delete `verify/*.mp4` and the audio when the user is done: day-long audio is hundreds of MB.

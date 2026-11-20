@@ -14,8 +14,9 @@ channel  the latest videos of a channel page you name, e.g.
 vod      title, uploader, length, live status and views of one VOD, without dumping its format list
          (never run `yt-dlp -J` on a day-long VOD: the JSON can be hundreds of MB).
 
-Output: a table (or --json) with the id/URL you hand to vodcut.py / ytfrag.py. Live and post-live YouTube VODs
-are what ytfrag.py downloads window by window; Twitch and Kick VODs go through yt-dlp itself.
+Output: a table (or --json) with the id/URL you hand to vodcut.py. Post-live YouTube VODs still served as
+2-second fragments go through ytfrag.py; processed VODs (YouTube processes them later), Twitch and Kick VODs
+through yt-dlp itself. vodcut.py asks yt-dlp which one a VOD is before every download.
 """
 import argparse, json, shutil, subprocess, sys
 

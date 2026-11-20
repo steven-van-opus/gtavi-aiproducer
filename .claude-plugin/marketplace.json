@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Single-plugin marketplace for gtavi-aiproducer: GTA 6 stream clips with Claude Code, cut locally and edited in AI Producer by OpusClip.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "allowCrossMarketplaceDependenciesOn": [
     "ai-producer-plugins"
@@ -16,7 +16,7 @@
       "name": "gtavi-aiproducer",
       "source": "./",
       "description": "16 skills that turn GTA 6 streams into captioned 1080x1920 videos with AI Producer as the harness: find streams, scan whole VODs, pick and cut moments 9:16, open them in AI Producer, write word-by-word captions, build countdowns, export, post with credits, track results.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": {
         "name": "[OWNER]"
       },

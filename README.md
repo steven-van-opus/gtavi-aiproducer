@@ -37,9 +37,8 @@ claude plugin install aip@ai-producer-plugins --scope user
 ```
 
 Start a new Claude Code session, run `/mcp`, choose `plugin:aip:ai-producer` and sign in with your OpusClip
-account in the browser. Inside a session the same install is `/plugin marketplace add opus-pro/ai-producer-plugin`
-then `/plugin install aip@ai-producer-plugins`. AI Producer in coding agents is in beta and open to a limited set
-of accounts; if sign-in is refused, that is why.
+account in the browser. AI Producer in coding agents is in beta and open to a limited set of accounts; if sign-in
+is refused, that is why.
 
 **2. Install this plugin**
 
@@ -49,6 +48,7 @@ of accounts; if sign-in is refused, that is why.
 ```
 
 It declares `aip@ai-producer-plugins` as a dependency, so Claude Code keeps AI Producer enabled alongside it.
+gtavi-aiproducer already includes the /vodcut scan; install one or the other (see the FAQ).
 
 **3. Local tools** (the scan and the cut run on your machine)
 
@@ -170,10 +170,10 @@ Standard-library Python (run with `python3 -I`) plus ffmpeg, yt-dlp and whisper.
 
 | Script | What it does |
 |---|---|
-| `vodcut.py` | The VOD pipeline: `scan`, `find`, `verify`, `cut`, `prep`, `report` |
-| `ytfrag.py` | Exact windows or whole tracks of YouTube post-live VODs served as 2-second fragments (where yt-dlp sections fail); rotates throttled URLs, resumes, retries |
+| `vodcut.py` | The VOD pipeline: `scan`, `find`, `verify`, `cut`, `prep`, `report`. Post-live VODs still served as 2-second fragments go through `ytfrag.py`; processed VODs through yt-dlp (it asks yt-dlp which before every download) |
+| `ytfrag.py` | Exact windows or whole tracks of YouTube post-live VODs still served as 2-second fragments (where yt-dlp sections fail); rotates throttled URLs, resumes, retries, and stops on a processed VOD |
 | `scan_vod.py` | Loudness + chunked whisper.cpp transcription of a whole stream, resumable |
-| `scan_frags.py` | Transcribes 20-minute chunks while `ytfrag.py track` is still downloading |
+| `scan_frags.py` | Transcribes 20-minute chunks while `ytfrag.py track` is still downloading (fragment-served VODs only) |
 | `rank_windows.py` | 30 s windows ranked by loudness, reaction cues and speech; whisper loops cleaned; review flags; distinct moments |
 | `framesheet.py` | 12 frames of a clip in one image, to verify a moment by eye |
 | `frame.py` | 9:16 composer: `grid` to measure the facecam, `still` to check, `compose` to write 1080x1920 30 fps |
@@ -225,6 +225,10 @@ as a dependency. Without it, this plugin installs but does not load.
 
 **Which streamers?** Any. The examples use IShowSpeed and Kai Cenat because they streamed GTA VI for most of launch day.
 Measure each streamer's facecam once per layout.
+
+**Do I also need the standalone /vodcut?** No. gtavi-aiproducer already includes the /vodcut scan
+(`/gtavi-aiproducer:vodcut`), and the cut, AI Producer and caption steps are its other skills. Install one or the
+other: both ship a skill named `vodcut`, so with both installed a bare `/vodcut` goes to whichever loaded first.
 
 ## Disclaimer
 

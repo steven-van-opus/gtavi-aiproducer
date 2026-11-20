@@ -41,20 +41,30 @@ python3 -I "${CLAUDE_SKILL_DIR}/../../scripts/vodcut.py" cut gtavi/runs/<slug> -
   --streamer "IShowSpeed" --handle @IShowSpeed --platform youtube
 ```
 
-By hand, for any file:
+`vodcut.py cut` takes the same layout options as `frame.py` and passes them on: `--layout`, `--top-ratio`,
+`--focus-x`, `--divider`. It asks yt-dlp how YouTube serves the VOD first: a post-live VOD still served as
+2-second fragments goes through `ytfrag.py`, a processed one through yt-dlp. The downloaded window is named by its
+span (`clips/m03_src_8034.00-8071.50.mp4`), so cutting again with a new `--in-out` never reuses an old window.
+
+By hand, for any file (download the window with the line that fits the VOD, then check and compose):
 
 ```bash
-python3 -I "${CLAUDE_SKILL_DIR}/../../scripts/ytfrag.py" window <VIDEO_ID> 2:13:54 2:14:31.5 src.mp4   # 1080p60 H.264 + AAC
+python3 -I "${CLAUDE_SKILL_DIR}/../../scripts/ytfrag.py" window <VIDEO_ID> 2:13:54 2:14:31.5 src.mp4   # still 2-second fragments
+yt-dlp -f "299+140/bv*[height<=1080]+ba/b" --download-sections "*2:13:54-2:14:31.5" \
+  --merge-output-format mp4 -o src.mp4 "https://www.youtube.com/watch?v=<VIDEO_ID>"           # processed VOD
 python3 -I "${CLAUDE_SKILL_DIR}/../../scripts/frame.py" still src.mp4 check.png --facecam 0,462,388,240 --gameplay 0,90,1920,990 --at 8
 python3 -I "${CLAUDE_SKILL_DIR}/../../scripts/frame.py" compose src.mp4 m03_9x16.mp4 --facecam 0,462,388,240 --gameplay 0,90,1920,990
 ```
+
+`ytfrag.py` refuses a processed VOD (`... is a processed VOD (protocol https)`); then use the yt-dlp line.
 
 Always Read the `still` before composing. Layouts:
 - `stack` (default): facecam band on top, its height from the camera's shape (28-50% of the frame), gameplay
   below. The JSON prints `seam_y`: keep it, captions and headers use it.
 - `inset`: gameplay fills the frame, facecam in a bordered box near the top.
 - `full`: gameplay only, for moments where the reaction is heard more than seen.
-If the plan notes say the crop "still shows the facecam", pass `--gameplay` or `--focus-x`.
+If the plan notes say the crop "still shows the facecam", pass `--gameplay` or `--focus-x` (to `frame.py` or
+`vodcut.py cut`). Clips that are joined later (a countdown) all take the same `--top-ratio`, so the seam stays put.
 
 Output: 1080x1920, 30 fps (AI Producer exports at most 30 fps), H.264 + AAC 48 kHz.
 

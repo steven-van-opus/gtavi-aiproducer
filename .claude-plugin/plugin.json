@@ -1,7 +1,7 @@
 {
   "name": "gtavi-aiproducer",
   "displayName": "GTA 6 Clip Desk for AI Producer",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Turn GTA 6 streams into captioned, ready-to-post 1080x1920 videos. Claude scans the whole VOD on your machine, picks the moments and cuts them 9:16; AI Producer by OpusClip is the harness that hosts the project, transcript, caption workspace, timeline and export, and hands back an editable project link.",
   "author": {
     "name": "[OWNER]",

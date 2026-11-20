@@ -21,8 +21,9 @@ Nov 18 (US at 05:00 UTC Nov 19). Every clip must come from after the unlock (`cl
 
 ## Hours 0-6: singles, fast
 
-1. `vodcut` on every finished part as soon as it ends (background job; it resumes). Start transcribing while
-   the audio downloads with `scan_frags.py` on long parts.
+1. `vodcut` on every finished part as soon as it ends (background job; it resumes). While YouTube still serves
+   a long part as 2-second fragments, start transcribing during the download with `scan_frags.py`; a processed
+   part downloads in minutes through yt-dlp, so there is nothing to overlap.
 2. `vodcut find` the phrases fans are already clipping; `vodcut verify` the top 8.
 3. `pick-moments`: 3-5 singles, 20-45 s, reaction on camera.
 4. `cut-and-frame` -> `aip-project` (open them all, then wait) -> `aip-captions` -> `finish_project`.

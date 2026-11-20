@@ -63,7 +63,11 @@ Scripts: `${CLAUDE_SKILL_DIR}/../../scripts/`. Work in `gtavi/countdowns/<slug>/
 
 1. **Moments.** `streams` -> `vodcut` for each VOD -> `pick-moments` with 9-13 s cuts. Credit and platform for each.
 2. **Items.** `cut-and-frame` every item with the same `--top-ratio 0.35` so the band line (`seam_y` 672) never jumps
-   between items. Bleep there if needed.
+   between items, whichever streamer's facecam it comes from. Bleep there if needed. For example:
+   ```bash
+   python3 -I "${CLAUDE_SKILL_DIR}/../../scripts/vodcut.py" cut gtavi/runs/<slug> --pick 3 --in-out 3=<start>-<end> \
+     --facecam X,Y,W,H --gameplay X,Y,W,H --top-ratio 0.35 --streamer "<name>" --handle @<handle> --platform youtube
+   ```
 3. **Join.** Write `plan.json` (rank, clip, in, out, label, streamer, platform, credit per item) and build:
    ```bash
    python3 -I "${CLAUDE_SKILL_DIR}/../../scripts/countdown.py" build gtavi/countdowns/<slug>/plan.json gtavi/countdowns/<slug>

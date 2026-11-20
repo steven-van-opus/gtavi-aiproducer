@@ -14,7 +14,7 @@ It depends on the official plugin `aip@ai-producer-plugins` and its tools, named
 `mcp__plugin_aip_ai-producer__<tool>` in Claude Code. Read the official `aip:aip` skill once per session: its
 settings, pricing, talk-to-the-user and delivery rules apply here too; this skill only adds the GTA specifics.
 
-Tools this skill calls (Claude Code names): `mcp__plugin_aip_ai-producer__get_pricing`, `mcp__plugin_aip_ai-producer__get_editing_preset`, `mcp__plugin_aip_ai-producer__sign_upload`, `mcp__plugin_aip_ai-producer__start_transcribe_project`, `mcp__plugin_aip_ai-producer__wait_task`, `mcp__plugin_aip_ai-producer__get_transcript`, `mcp__plugin_aip_ai-producer__get_view_url`, `mcp__plugin_aip_ai-producer__list_reference_presets`, `mcp__plugin_aip_ai-producer__get_reference_preset`.
+Tools this skill calls (Claude Code names): `mcp__plugin_aip_ai-producer__get_pricing`, `mcp__plugin_aip_ai-producer__get_editing_preset`, `mcp__plugin_aip_ai-producer__sign_upload`, `mcp__plugin_aip_ai-producer__start_transcribe_project`, `mcp__plugin_aip_ai-producer__wait_task`, `mcp__plugin_aip_ai-producer__get_transcript`, `mcp__plugin_aip_ai-producer__finish_project`, `mcp__plugin_aip_ai-producer__list_reference_presets`, `mcp__plugin_aip_ai-producer__get_reference_preset`.
 
 ## 0. Before anything
 
@@ -41,7 +41,8 @@ python3 -I "${CLAUDE_SKILL_DIR}/../../scripts/aip_prep.py" sign-args gtavi/runs/
 ```
 
 `check` must pass: .mp4/.mov/.webm, at most 3584 MiB, at most 30 min for most accounts (the web guide says 15),
-portrait. Then:
+portrait. A landscape file fails it (AI Producer would keep it 16:9): go back to `cut-and-frame`. Only a source
+that is meant to stay 16:9, such as a landscape talking head, gets `check --allow-landscape`. Then:
 
 1. `sign_upload` with exactly the `filename`, `content_type`, `size`, `sha256` that `sign-args` printed.
 2. PUT the bytes with every returned header. Use the official helper (it never prints the URL): write
@@ -68,6 +69,12 @@ GTA caption look of this plugin (`aip-captions`) is a fine answer to "skip".
 `wait_task` on the returned `task_id` (`wait_seconds` 270, repeat while not terminal; at most 8 waits at once).
 Then `get_transcript` with `detail: "segments"` to confirm the words landed. Write `project_id` and `page_url` into
 the clip's `.clip.json` (`aip` block). For several clips, start them all before waiting on any.
+
+`authoring: true` marks the project as still being edited (it lapses 30 minutes after the last call that set it);
+`finish_project` is what ends that status and unlocks the editor. If no caption or edit pass follows in this
+session (the user stops at the project link, the default delivery), call `finish_project` once `wait_task`
+succeeds, then give the `page_url`, so the link opens an editor the user can change. When `aip-captions` or
+another edit follows, that skill calls `finish_project` at its end instead.
 
 ## 5. Next
 
