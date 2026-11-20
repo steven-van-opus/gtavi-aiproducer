@@ -27,6 +27,7 @@ Text system, heavy condensed caps (Anton) with a thick black outline, gold #FFD2
 - Number card on each item's first 0.8 s: the frame blurs and dims, a gold "#4" slams in over the label in white ("KAI'S GETAWAY BIKE") and the credit small underneath ("@KaiCenat · YouTube"), then it shrinks into a "#4" tag in the top-right corner for the rest of the item.
 - Captions: a finished edit keeps its own; a fresh cut gets word-by-word captions around 75% of the height, white, the word being said in gold, other voices in light blue. Never two caption layers.
 - Closing question over #1's last 1.5 s: "WHO LOST IT MOST?"
+- Or, instead of this text system, apply AI Producer's Game UI Countdown preset (Gaming category: numbered pills, game-UI cards, keyword captions) with /aip:aip-reference-style: its captions, cards and transitions only.
 Sound: the streamers' own audio, one library impact as each number lands and a whoosh into each item; no AI-generated sound. Bleep profanity before upload when the page or campaign wants it.
 Banned: an intro longer than 2.5 s, a greeting, a channel plug, an item without its credit, more than 3 s with neither a face nor text, a 16:9 shot pasted small, the same moment twice, sexual content, slurs, story spoilers or endings, a cutscene on its own, footage from before release, and any line that says or suggests the streamers made, approved or endorse it.
 </direction>

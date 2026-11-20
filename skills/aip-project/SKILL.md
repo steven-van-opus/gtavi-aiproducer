@@ -62,7 +62,10 @@ that is meant to stay 16:9, such as a landscape talking head, gets `check --allo
 
 A new project asks one question about a reference style (preset, link, video, or skip), exactly as the official
 skill words it. For a batch of clips, ask it once for the whole batch and apply the answer to every project. The
-GTA caption look of this plugin (`aip-captions`) is a fine answer to "skip".
+GTA caption look of this plugin (`aip-captions`) is a fine answer to "skip". For GTA clips, offer the Gaming
+presets first (`list_reference_presets`, category `gaming`): Stream Split Third or Half Split Reactions for a
+cam-over-gameplay single, Layout Switch Getaway for a story cut, Game UI Countdown for a countdown. They copy the
+look only: AI Producer still doesn't reframe, so the 9:16 frame is composed locally first (`cut-and-frame`).
 
 ## 4. Wait and record
 
