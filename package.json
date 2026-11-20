@@ -1,0 +1,13 @@
+{
+  "name": "gtavi-aiproducer-docs",
+  "private": true,
+  "type": "module",
+  "description": "Only needed to re-render the README art with scripts/render.mjs (uses your installed Chrome).",
+  "scripts": {
+    "art": "node scripts/render.mjs still --html docs/hero.html --out docs/hero.png --width 1000 --height 860 --scale 2 --transparent && node scripts/render.mjs still --html docs/mascot.html --out docs/mascot.png --width 744 --height 624 --transparent && node scripts/render.mjs still --html docs/icon.html --out assets/icon.png --width 1024 --height 1024 && node scripts/render.mjs still --html docs/skills-banner.html --out docs/skills-banner.png --width 680 --height 128 --scale 2 --transparent && node scripts/render.mjs still --html docs/harness.html --out docs/harness.png --width 1600 --height 900 && python3 -I docs/src/make_badges.py",
+    "test": "python3 -I -m unittest discover -s tests -v"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^23.11.1"
+  }
+}

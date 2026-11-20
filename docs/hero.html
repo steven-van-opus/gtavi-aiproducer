@@ -1,0 +1,177 @@
+<!doctype html>
+<!-- README hero for gtavi-aiproducer. Original art only: no Rockstar logos, key art or game wordmark.
+     Render: node scripts/render.mjs still --html docs/hero.html --out docs/hero.png --width 1000 --height 860 --scale 2 --transparent -->
+<html>
+<head>
+<meta charset="utf-8">
+<title>gtavi-aiproducer hero</title>
+<style>
+  html, body { margin: 0; background: transparent; }
+  #hero { position: relative; width: 1000px; height: 860px; overflow: hidden; }
+  #scene { position: absolute; inset: 0; }
+  #slate { position: absolute; left: 600px; top: 18px; width: 372px; transform: rotate(6deg); }
+  .chip { position: absolute; font: 800 24px/1 "Avenir Next", "Helvetica Neue", Arial, sans-serif; letter-spacing: 0.06em;
+          color: #0B1020; background: #F4F1EA; border: 5px solid #0B1020; border-radius: 16px; padding: 12px 18px;
+          box-shadow: 0 8px 0 #0B1020; }
+  .chip b { color: #11B79E; }
+</style>
+</head>
+<body>
+<div id="hero">
+<svg id="scene" viewBox="0 0 1000 860" width="1000" height="860" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="night" cx="0.5" cy="0.42" r="0.62">
+      <stop offset="0" stop-color="#1D3B6E"/>
+      <stop offset="0.6" stop-color="#14254A"/>
+      <stop offset="1" stop-color="#0B1020"/>
+    </radialGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#19E3C4" stop-opacity="0"/>
+      <stop offset="1" stop-color="#19E3C4" stop-opacity="0.55"/>
+    </linearGradient>
+    <linearGradient id="dusk" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2A1B5C"/>
+      <stop offset="0.45" stop-color="#C2477E"/>
+      <stop offset="0.78" stop-color="#FF8A3D"/>
+      <stop offset="1" stop-color="#FFC24A"/>
+    </linearGradient>
+    <linearGradient id="room" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3B2A8C"/>
+      <stop offset="1" stop-color="#19E3C4"/>
+    </linearGradient>
+    <linearGradient id="road" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2B2F45"/>
+      <stop offset="1" stop-color="#0E1222"/>
+    </linearGradient>
+    <clipPath id="disc"><circle cx="500" cy="430" r="350"/></clipPath>
+    <clipPath id="screen"><rect x="-150" y="-268" width="300" height="536" rx="30"/></clipPath>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+
+  <!-- night disc with a city glow and palms (generic coastal skyline, no game assets) -->
+  <circle cx="500" cy="430" r="350" fill="url(#night)"/>
+  <g clip-path="url(#disc)">
+    <rect x="150" y="560" width="700" height="240" fill="url(#glow)"/>
+    <g fill="#0B1020">
+      <rect x="170" y="612" width="44" height="140"/><rect x="220" y="580" width="38" height="170"/>
+      <rect x="262" y="636" width="52" height="120"/><rect x="684" y="598" width="40" height="160"/>
+      <rect x="728" y="630" width="56" height="130"/><rect x="790" y="590" width="34" height="170"/>
+    </g>
+    <g fill="#FFB020" opacity="0.85">
+      <rect x="180" y="630" width="6" height="6"/><rect x="196" y="650" width="6" height="6"/><rect x="232" y="600" width="6" height="6"/>
+      <rect x="244" y="626" width="6" height="6"/><rect x="694" y="618" width="6" height="6"/><rect x="740" y="648" width="6" height="6"/>
+      <rect x="800" y="610" width="6" height="6"/><rect x="276" y="660" width="6" height="6"/>
+    </g>
+    <!-- palms -->
+    <g fill="none" stroke="#0B1020" stroke-linecap="round">
+      <path d="M200,760 q14,-120 -6,-230" stroke-width="14"/>
+      <path d="M800,760 q-10,-110 10,-210" stroke-width="14"/>
+    </g>
+    <g fill="#0B1020">
+      <path d="M194,530 q-60,-30 -112,6 q60,-10 112,-6z"/><path d="M194,530 q-40,-60 -104,-58 q58,18 104,58z"/>
+      <path d="M194,530 q40,-58 104,-50 q-60,10 -104,50z"/><path d="M194,530 q66,-20 112,24 q-62,-20 -112,-24z"/>
+      <path d="M810,550 q-62,-28 -112,10 q60,-12 112,-10z"/><path d="M810,550 q-38,-60 -100,-60 q56,18 100,60z"/>
+      <path d="M810,550 q42,-56 104,-46 q-60,10 -104,46z"/><path d="M810,550 q64,-18 108,28 q-60,-22 -108,-28z"/>
+    </g>
+    <!-- stars -->
+    <g fill="#F4F1EA" opacity="0.7">
+      <circle cx="260" cy="250" r="3"/><circle cx="330" cy="170" r="2.5"/><circle cx="700" cy="190" r="3"/>
+      <circle cx="760" cy="300" r="2"/><circle cx="230" cy="380" r="2"/><circle cx="640" cy="120" r="2"/>
+    </g>
+  </g>
+
+  <!-- the vertical clip: facecam band on top, gameplay below, word-by-word caption on the seam -->
+  <g transform="translate(470 420) rotate(-7)">
+    <rect x="-176" y="-296" width="352" height="592" rx="48" fill="#19E3C4" opacity="0.35" filter="url(#soft)"/>
+    <rect x="-166" y="-284" width="332" height="568" rx="44" fill="#0B1020" stroke="#F4F1EA" stroke-width="8"/>
+    <g clip-path="url(#screen)">
+      <!-- facecam band: a generic streamer silhouette in a lit room -->
+      <rect x="-150" y="-268" width="300" height="196" fill="url(#room)"/>
+      <rect x="-130" y="-250" width="70" height="90" rx="6" fill="#FFFFFF" opacity="0.12"/>
+      <rect x="70" y="-246" width="56" height="70" rx="6" fill="#FF5A5F" opacity="0.25"/>
+      <path d="M-70,-72 q8,-62 70,-62 q62,0 70,62z" fill="#0B1020"/>
+      <circle cx="0" cy="-168" r="38" fill="#0B1020"/>
+      <path d="M-44,-170 a44,44 0 0 1 88,0" fill="none" stroke="#19E3C4" stroke-width="9"/>
+      <rect x="-54" y="-180" width="18" height="30" rx="7" fill="#19E3C4"/>
+      <rect x="36" y="-180" width="18" height="30" rx="7" fill="#19E3C4"/>
+      <path d="M-14,-150 q14,12 28,0" fill="none" stroke="#FFB020" stroke-width="5" stroke-linecap="round"/>
+      <!-- gameplay band: dusk, a coastal road, a patrol car with its light bar on -->
+      <rect x="-150" y="-72" width="300" height="340" fill="url(#dusk)"/>
+      <circle cx="40" cy="20" r="46" fill="#FFE07A" opacity="0.9"/>
+      <rect x="-150" y="40" width="300" height="10" fill="#2A1B5C" opacity="0.35"/>
+      <path d="M-150,268 L-22,62 L22,62 L150,268z" fill="url(#road)"/>
+      <path d="M0,74 L0,100 M0,124 L0,160 M0,190 L0,240" stroke="#FFB020" stroke-width="6" stroke-linecap="round"/>
+      <g fill="#0B1020">
+        <path d="M-118,62 q4,-60 -4,-96" stroke="#0B1020" stroke-width="6" fill="none"/>
+        <path d="M-122,-34 q-28,-6 -44,12 q22,-8 44,-12z M-122,-34 q-6,-26 -30,-30 q20,10 30,30z M-122,-34 q24,-16 44,-6 q-26,0 -44,6z"/>
+        <path d="M112,70 q-6,-56 6,-92" stroke="#0B1020" stroke-width="6" fill="none"/>
+        <path d="M118,-22 q-26,-8 -44,8 q22,-6 44,-8z M118,-22 q-2,-28 -26,-34 q18,12 26,34z M118,-22 q24,-12 42,0 q-24,-4 -42,0z"/>
+      </g>
+      <!-- patrol car -->
+      <g transform="translate(-6 176)">
+        <rect x="-64" y="-26" width="128" height="40" rx="14" fill="#F4F1EA"/>
+        <path d="M-40,-26 q8,-26 40,-26 q32,0 40,26z" fill="#0B1020"/>
+        <rect x="-26" y="-60" width="24" height="10" rx="3" fill="#FF5A5F"/>
+        <rect x="2" y="-60" width="24" height="10" rx="3" fill="#6FD3FF"/>
+        <circle cx="-38" cy="16" r="13" fill="#0B1020"/><circle cx="38" cy="16" r="13" fill="#0B1020"/>
+        <rect x="-64" y="-8" width="128" height="10" fill="#0B1020"/>
+      </g>
+      <path d="M-32,116 l-60,-30 l8,-14z" fill="#FF5A5F" opacity="0.35"/>
+      <path d="M20,116 l70,-34 l-6,-14z" fill="#6FD3FF" opacity="0.35"/>
+      <!-- seam + caption -->
+      <rect x="-150" y="-74" width="300" height="4" fill="#0B1020"/>
+      <g font-family="Anton, Impact, 'Arial Black', sans-serif" font-size="58" text-anchor="middle"
+         stroke="#0B1020" stroke-width="12" stroke-linejoin="round" paint-order="stroke">
+        <text x="-52" y="-50" fill="#FFFFFF">NO</text>
+        <text x="48" y="-50" fill="#FFD23F">WAY</text>
+      </g>
+    </g>
+    <!-- camera notch + progress bar -->
+    <rect x="-36" y="-276" width="72" height="12" rx="6" fill="#0B1020"/>
+    <rect x="-130" y="248" width="260" height="8" rx="4" fill="#F4F1EA" opacity="0.35"/>
+    <rect x="-130" y="248" width="150" height="8" rx="4" fill="#19E3C4"/>
+  </g>
+
+  <!-- the harness timeline under the clip -->
+  <g transform="translate(150 742)">
+    <rect x="0" y="0" width="700" height="96" rx="22" fill="#0B1020" stroke="#F4F1EA" stroke-width="6"/>
+    <g fill="#F4F1EA" opacity="0.5">
+      <rect x="26" y="12" width="14" height="8" rx="2"/><rect x="66" y="12" width="14" height="8" rx="2"/><rect x="106" y="12" width="14" height="8" rx="2"/>
+      <rect x="146" y="12" width="14" height="8" rx="2"/><rect x="186" y="12" width="14" height="8" rx="2"/><rect x="226" y="12" width="14" height="8" rx="2"/>
+      <rect x="266" y="12" width="14" height="8" rx="2"/><rect x="306" y="12" width="14" height="8" rx="2"/><rect x="346" y="12" width="14" height="8" rx="2"/>
+      <rect x="386" y="12" width="14" height="8" rx="2"/><rect x="426" y="12" width="14" height="8" rx="2"/><rect x="466" y="12" width="14" height="8" rx="2"/>
+      <rect x="506" y="12" width="14" height="8" rx="2"/><rect x="546" y="12" width="14" height="8" rx="2"/><rect x="586" y="12" width="14" height="8" rx="2"/>
+      <rect x="626" y="12" width="14" height="8" rx="2"/><rect x="666" y="12" width="14" height="8" rx="2"/>
+    </g>
+    <rect x="22" y="30" width="150" height="24" rx="7" fill="#19E3C4"/>
+    <rect x="178" y="30" width="120" height="24" rx="7" fill="#FFB020"/>
+    <rect x="304" y="30" width="170" height="24" rx="7" fill="#FF5A5F"/>
+    <rect x="480" y="30" width="196" height="24" rx="7" fill="#6FD3FF"/>
+    <g fill="#F4F1EA" opacity="0.85">
+      <rect x="22" y="62" width="70" height="16" rx="5"/><rect x="98" y="62" width="44" height="16" rx="5"/>
+      <rect x="148" y="62" width="88" height="16" rx="5"/><rect x="242" y="62" width="60" height="16" rx="5"/>
+      <rect x="308" y="62" width="96" height="16" rx="5"/><rect x="410" y="62" width="52" height="16" rx="5"/>
+      <rect x="468" y="62" width="80" height="16" rx="5"/><rect x="554" y="62" width="122" height="16" rx="5"/>
+    </g>
+    <rect x="388" y="-14" width="6" height="122" rx="3" fill="#FFFFFF"/>
+    <path d="M379,-24 h24 l-12,14z" fill="#FFFFFF"/>
+  </g>
+
+  <!-- sparkles -->
+  <g fill="#FFB020">
+    <path d="M118,214 l8,22 l22,8 l-22,8 l-8,22 l-8,-22 l-22,-8 l22,-8z"/>
+    <path d="M880,470 l6,16 l16,6 l-16,6 l-6,16 l-6,-16 l-16,-6 l16,-6z"/>
+  </g>
+  <g fill="#19E3C4">
+    <path d="M150,560 l5,14 l14,5 l-14,5 l-5,14 l-5,-14 l-14,-5 l14,-5z"/>
+    <path d="M846,690 l5,14 l14,5 l-14,5 l-5,14 l-5,-14 l-14,-5 l14,-5z"/>
+  </g>
+</svg>
+<img id="slate" src="src/mascot.svg" alt="">
+<div class="chip" style="left:64px; top:96px; transform: rotate(-6deg)"><b>9:16</b> 1080×1920</div>
+<div class="chip" style="left:74px; top:436px; transform: rotate(-4deg)">WORD-BY-WORD <b>CC</b></div>
+<div class="chip" style="left:700px; top:612px; transform: rotate(5deg)"><b>●</b> EXPORT 1080p</div>
+</div>
+<script>window.__ready = true;</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<!-- "The harness" diagram for the README: what Claude Code does locally, what AI Producer hosts.
+     Render: node scripts/render.mjs still --html docs/harness.html --out docs/harness.png --width 1600 --height 900 --scale 1 -->
+<html>
+<head>
+<meta charset="utf-8">
+<title>The harness</title>
+<style>
+  :root { --ink: #0B1020; --panel: #121A33; --teal: #19E3C4; --amber: #FFB020; --coral: #FF5A5F; --sky: #6FD3FF; --chalk: #F4F1EA; }
+  html, body { margin: 0; }
+  body { width: 1600px; height: 900px; background: var(--ink); color: var(--chalk);
+         font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif; position: relative; overflow: hidden; }
+  h1 { position: absolute; left: 70px; top: 44px; margin: 0; font-size: 46px; font-weight: 800; letter-spacing: 0.01em; }
+  h1 span { color: var(--teal); }
+  .sub { position: absolute; left: 72px; top: 108px; font-size: 22px; color: rgba(244, 241, 234, 0.7); }
+  .col { position: absolute; top: 170px; width: 610px; border-radius: 28px; padding: 26px 30px 30px; box-sizing: border-box; }
+  .claude { left: 70px; height: 600px; background: var(--panel); border: 4px solid var(--amber); }
+  .aip { left: 920px; height: 600px; background: var(--panel); border: 4px solid var(--teal); }
+  .col h2 { margin: 0 0 4px; font-size: 30px; font-weight: 800; }
+  .claude h2 { color: var(--amber); } .aip h2 { color: var(--teal); }
+  .col .where { font-size: 18px; color: rgba(244, 241, 234, 0.65); margin-bottom: 18px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; background: rgba(244, 241, 234, 0.05); border-radius: 16px;
+          padding: 14px 16px; margin-bottom: 14px; }
+  .num { flex: none; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+         font-weight: 800; font-size: 20px; color: var(--ink); }
+  .claude .num { background: var(--amber); } .aip .num { background: var(--teal); }
+  .step b { display: block; font-size: 22px; margin-bottom: 3px; }
+  .step span { font-size: 17px; color: rgba(244, 241, 234, 0.72); font-family: Menlo, Consolas, monospace; }
+  .lane { position: absolute; left: 690px; top: 170px; width: 220px; height: 600px; }
+  .arrow { position: absolute; left: 0; width: 220px; text-align: center; font-size: 17px; font-weight: 700; }
+  .arrow svg { display: block; margin: 6px auto 0; }
+  .you { position: absolute; left: 70px; right: 70px; bottom: 34px; height: 72px; border-radius: 20px; border: 3px dashed rgba(244, 241, 234, 0.45);
+         display: flex; align-items: center; justify-content: center; gap: 14px; font-size: 22px; }
+  .you b { color: var(--coral); }
+</style>
+</head>
+<body>
+<h1>The harness: <span>Claude cuts, AI Producer runs the edit</span></h1>
+<div class="sub">Long VODs never go to AI Producer whole: Claude finds and frames the moment, AI Producer hosts the edit.</div>
+
+<div class="col claude">
+  <h2>Claude Code</h2>
+  <div class="where">on your machine · ffmpeg · yt-dlp · whisper.cpp</div>
+  <div class="step"><div class="num">1</div><div><b>Find streams</b><span>find_streams.py · fan clips as leads</span></div></div>
+  <div class="step"><div class="num">2</div><div><b>Scan the whole VOD</b><span>vodcut.py scan · loudness + transcript</span></div></div>
+  <div class="step"><div class="num">3</div><div><b>Pick + verify the moments</b><span>rubric · brand safety · frame sheets</span></div></div>
+  <div class="step"><div class="num">4</div><div><b>Cut + frame 9:16</b><span>frame.py · facecam top, gameplay below</span></div></div>
+  <div class="step"><div class="num">6</div><div><b>Write the captions + headers</b><span>captions.py · countdown.py · preflight</span></div></div>
+</div>
+
+<div class="lane">
+  <div class="arrow" style="top: 250px; color: var(--amber);">1080×1920 clip
+    <svg width="200" height="30" viewBox="0 0 200 30"><path d="M8,15 H180" stroke="#FFB020" stroke-width="6" stroke-linecap="round"/><path d="M172,4 L192,15 L172,26z" fill="#FFB020"/></svg></div>
+  <div class="arrow" style="top: 340px; color: var(--teal);">word timings
+    <svg width="200" height="30" viewBox="0 0 200 30"><path d="M192,15 H20" stroke="#19E3C4" stroke-width="6" stroke-linecap="round"/><path d="M28,4 L8,15 L28,26z" fill="#19E3C4"/></svg></div>
+  <div class="arrow" style="top: 430px; color: var(--amber);">caption moments
+    <svg width="200" height="30" viewBox="0 0 200 30"><path d="M8,15 H180" stroke="#FFB020" stroke-width="6" stroke-linecap="round"/><path d="M172,4 L192,15 L172,26z" fill="#FFB020"/></svg></div>
+</div>
+
+<div class="col aip">
+  <h2>AI Producer by OpusClip</h2>
+  <div class="where">the harness · official plugin aip@ai-producer-plugins</div>
+  <div class="step"><div class="num">5</div><div><b>Project + transcript</b><span>sign_upload · PUT · start_transcribe_project</span></div></div>
+  <div class="step"><div class="num">7</div><div><b>Workspace: validated, versioned</b><span>commit_workspace · preflight rules</span></div></div>
+  <div class="step"><div class="num">8</div><div><b>Editable timeline</b><span>finish_project · page_url</span></div></div>
+  <div class="step"><div class="num">9</div><div><b>Export 1080p · 30 fps MP4</b><span>start_export · get_export_url</span></div></div>
+  <div class="step"><div class="num">✓</div><div><b>Hand-back</b><span>the editable link, the MP4 on request</span></div></div>
+</div>
+
+<div class="you">You: <b>approve</b> · post with the streamer's credit · submit to a campaign if you want · log it in the scoreboard</div>
+<script>window.__ready = true;</script>
+</body>
+</html>
