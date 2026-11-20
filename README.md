@@ -230,7 +230,16 @@ Measure each streamer's facecam once per layout.
 (`/gtavi-aiproducer:vodcut`), and the cut, AI Producer and caption steps are its other skills. Install one or the
 other: both ship a skill named `vodcut`, so with both installed a bare `/vodcut` goes to whichever loaded first.
 
+**Who made this? Is it official, or affiliated with Rockstar, IShowSpeed or Kai Cenat?** It isn't AI Producer's
+official plugin (that's `aip@ai-producer-plugins`, which this one depends on), but it isn't independent of OpusClip
+either: [OWNER] made it for OpusClip's GTA 6 launch campaign. It's open source and uses AI Producer through the
+official `aip` plugin. It is not affiliated with or endorsed by Rockstar Games, Take-Two Interactive, IShowSpeed or
+Kai Cenat. The art is original: no Rockstar logos, key art or game wordmarks.
+
 ## Disclaimer
+
+**Who made this.** [OWNER] made this plugin for OpusClip as part of OpusClip's GTA 6 launch campaign, so it is not an
+independent review or recommendation of OpusClip or AI Producer.
 
 Not affiliated with or endorsed by Rockstar Games, Take-Two Interactive, IShowSpeed or Kai Cenat. Grand Theft Auto and
 GTA are trademarks of Take-Two Interactive; the art in this repo is original. Stream footage belongs to its owners:
