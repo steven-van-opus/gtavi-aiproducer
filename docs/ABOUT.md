@@ -16,4 +16,4 @@
 
 | Placeholder | Where |
 |---|---|
-| `[OWNER]` | README.md (install lines; FAQ "Who made this?" and Disclaimer "Who made this."), .claude-plugin/plugin.json (author, homepage, repository), .claude-plugin/marketplace.json (owner, homepage, repository), LICENSE |
+| `steven-van-opus` | README.md (install lines; FAQ "Who made this?" and Disclaimer "Who made this."), .claude-plugin/plugin.json (author, homepage, repository), .claude-plugin/marketplace.json (owner, homepage, repository), LICENSE |

@@ -143,7 +143,7 @@ class Copy(unittest.TestCase):
         for heading in ('## Quick start', '## How it works', '## Skills', '## Make money', '## Clip rules', '## Scripts',
                         '## FAQ', '## Disclaimer'):
             self.assertIn(heading, readme)
-        for cmd in ('claude plugin install aip@ai-producer-plugins', '/plugin marketplace add [OWNER]/gtavi-aiproducer',
+        for cmd in ('claude plugin install aip@ai-producer-plugins', '/plugin marketplace add steven-van-opus/gtavi-aiproducer',
                     '/plugin install gtavi-aiproducer@gtavi-aiproducer'):
             self.assertIn(cmd, readme)
         self.assertIn('Illustrative math, not a promise. Most clips earn $0.', readme)
