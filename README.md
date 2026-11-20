@@ -230,17 +230,13 @@ Measure each streamer's facecam once per layout.
 (`/gtavi-aiproducer:vodcut`), and the cut, AI Producer and caption steps are its other skills. Install one or the
 other: both ship a skill named `vodcut`, so with both installed a bare `/vodcut` goes to whichever loaded first.
 
-**Who made this? Is it official, or affiliated with Rockstar, IShowSpeed or Kai Cenat?** It isn't AI Producer's
-official plugin (that's `aip@ai-producer-plugins`, which this one depends on), but it isn't independent of OpusClip
-either: steven-van-opus made it for OpusClip's GTA 6 launch campaign. It's open source and uses AI Producer through the
-official `aip` plugin. It is not affiliated with or endorsed by Rockstar Games, Take-Two Interactive, IShowSpeed or
-Kai Cenat. The GTA VI logo in the header art is Take-Two Interactive's trademark, shown only to identify the game; the
-pixel buddies and the rest of the art are original.
+**Is it official, or affiliated with Rockstar, IShowSpeed or Kai Cenat?** It isn't AI Producer's official plugin (that's
+`aip@ai-producer-plugins`, which this one depends on). It's open source and uses AI Producer through the official `aip`
+plugin. It is not affiliated with or endorsed by Rockstar Games, Take-Two Interactive, IShowSpeed or Kai Cenat. The GTA
+VI logo in the header art is Take-Two Interactive's trademark, shown only to identify the game; the pixel buddies and
+the rest of the art are original.
 
 ## Disclaimer
-
-**Who made this.** steven-van-opus made this plugin for OpusClip as part of OpusClip's GTA 6 launch campaign, so it is not an
-independent review or recommendation of OpusClip or AI Producer.
 
 Not affiliated with or endorsed by Rockstar Games, Take-Two Interactive, IShowSpeed or Kai Cenat. Grand Theft Auto,
 GTA and the GTA VI logo in the header art are trademarks of Take-Two Interactive; the rest of the art is original.
