@@ -20,6 +20,8 @@ rules, Instagram's reposting rules).
 | Ranking | "the 3 best launch-day moments, ranked" | one clip per rank |
 | Breakdown | why a clip went viral (hook, timing, reaction) | the clip, paused on beats |
 
+Tools this skill calls (Claude Code names): `mcp__plugin_aip_ai-producer__sign_workspace_upload`, `mcp__plugin_aip_ai-producer__commit_workspace`, `mcp__plugin_aip_ai-producer__frame_speaker`, `mcp__plugin_aip_ai-producer__get_task`, `mcp__plugin_aip_ai-producer__finish_project`.
+
 ## Steps
 
 1. **Script.** Write the talk with the user: a first line that is the hook (see `hooks`), one idea per

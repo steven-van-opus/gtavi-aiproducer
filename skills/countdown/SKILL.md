@@ -55,6 +55,8 @@ End: #1's reaction plays out. No outro card, no "follow for more".
 </structure>
 ```
 
+Tools this skill calls (Claude Code names): `mcp__plugin_aip_ai-producer__list_workspace`, `mcp__plugin_aip_ai-producer__get_workspace_file`, `mcp__plugin_aip_ai-producer__commit_workspace`, `mcp__plugin_aip_ai-producer__list_sound_effects`, `mcp__plugin_aip_ai-producer__place_sound_effects`, `mcp__plugin_aip_ai-producer__finish_project`.
+
 ## Run it
 
 Scripts: `${CLAUDE_SKILL_DIR}/../../scripts/`. Work in `gtavi/countdowns/<slug>/`.

@@ -14,6 +14,8 @@ It depends on the official plugin `aip@ai-producer-plugins` and its tools, named
 `mcp__plugin_aip_ai-producer__<tool>` in Claude Code. Read the official `aip:aip` skill once per session: its
 settings, pricing, talk-to-the-user and delivery rules apply here too; this skill only adds the GTA specifics.
 
+Tools this skill calls (Claude Code names): `mcp__plugin_aip_ai-producer__get_pricing`, `mcp__plugin_aip_ai-producer__get_editing_preset`, `mcp__plugin_aip_ai-producer__sign_upload`, `mcp__plugin_aip_ai-producer__start_transcribe_project`, `mcp__plugin_aip_ai-producer__wait_task`, `mcp__plugin_aip_ai-producer__get_transcript`, `mcp__plugin_aip_ai-producer__get_view_url`, `mcp__plugin_aip_ai-producer__list_reference_presets`, `mcp__plugin_aip_ai-producer__get_reference_preset`.
+
 ## 0. Before anything
 
 - Tools missing, or an OAuth prompt: the user signs in with `/mcp` -> `plugin:aip:ai-producer`, then starts a

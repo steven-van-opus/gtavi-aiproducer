@@ -130,14 +130,22 @@ What the campaigns looked like on GTA VI's launch day (snapshot of the Content R
 - Neither IShowSpeed nor Kai Cenat had a confirmed official clipping program; pools around streamers are run by
   independent agencies. Read each brief.
 
-The math nobody puts in the thread, with `scripts/campaign_math.py`:
+The math nobody puts in the thread: 810 clips at $1 per 1,000 views with a $10 minimum, a $500 cap and a 10% fee,
+where most clips miss the minimum and a few hit the cap (`scripts/campaign_math.py`):
 
-```text
-$ python3 -I scripts/campaign_math.py cpm --rate 1 --min 10 --cap 500 --fee 0.10 \
-    --views 3000x770 --views 50000x30 --views 1000000x10
-810 clips, 13,810,000 views. Naive views x rate: $13,810. Rate card gross: $6,500.
-After the fee: $5,850 (42% of the naive figure).
+```bash
+python3 -I scripts/campaign_math.py cpm --rate 1 --min 10 --cap 500 --fee 0.10 \
+  --views 3000x770 --views 50000x30 --views 1000000x10
 ```
+
+| views per clip | clips | pay per clip | subtotal | |
+|---:|---:|---:|---:|---|
+| 3,000 | 770 | $0 | $0 | below the minimum: $0 |
+| 50,000 | 30 | $50 | $1,500 | paid at the rate |
+| 1,000,000 | 10 | $500 | $5,000 | capped |
+
+810 clips, 13,810,000 views. Naive views x rate: $13,810. Rate card gross: $6,500. After the fee: $5,850 (42% of
+the naive figure).
 
 *Illustrative math, not a promise. Most clips earn $0.* Rates, minimums and caps are set by each campaign and change
 often. YouTube, TikTok and Instagram also stop paying for or recommending unoriginal re-uploads, which is why every

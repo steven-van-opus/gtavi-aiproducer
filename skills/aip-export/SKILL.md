@@ -10,6 +10,8 @@ The default delivery is the editable project link (`page_url`). An MP4 is render
 ("export it", "give me the mp4", "I want to post it"), as the official `aip:aip` skill says. Every call carries
 `context` and `llm_model`, as in `aip-project`.
 
+Tools this skill calls (Claude Code names): `mcp__plugin_aip_ai-producer__finish_project`, `mcp__plugin_aip_ai-producer__start_export`, `mcp__plugin_aip_ai-producer__wait_task`, `mcp__plugin_aip_ai-producer__get_export_url`.
+
 ## 1. Make sure the edit is handed back
 
 - The last `commit_workspace` was accepted (`wait_task` result) and closed authoring (`authoring: false`).

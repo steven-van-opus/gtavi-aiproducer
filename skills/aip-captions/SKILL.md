@@ -20,6 +20,8 @@ Paths: this plugin's scripts are in `${CLAUDE_SKILL_DIR}/../../scripts/`; `<aip 
 `scripts/` folder (see `aip-project`; run those with plain `python3`, they import their sibling modules); the local
 workspace copy lives at `gtavi/aip/<clip>/render-engine/`.
 
+Tools this skill calls (Claude Code names): `mcp__plugin_aip_ai-producer__list_workspace`, `mcp__plugin_aip_ai-producer__get_workspace_file`, `mcp__plugin_aip_ai-producer__sign_workspace_upload`, `mcp__plugin_aip_ai-producer__commit_workspace`, `mcp__plugin_aip_ai-producer__wait_task`, `mcp__plugin_aip_ai-producer__get_task`, `mcp__plugin_aip_ai-producer__list_sound_effects`, `mcp__plugin_aip_ai-producer__place_sound_effects`, `mcp__plugin_aip_ai-producer__finish_project`.
+
 ## 1. Fetch the workspace
 
 1. `list_workspace` (project_id): keep `digest` for `base_digest`.
