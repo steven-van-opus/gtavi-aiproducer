@@ -96,8 +96,11 @@ Reaction:    [My take in one line]
 
 ## 8. Uploading and scheduling
 
-AI Producer edits and exports; it does not post. Upload the exported MP4 natively or through the scheduler you
-chose, after approval. Confirm the account before every post. Log every post (section 13).
+AI Producer edits and exports; it does not post. After approval, either post the MP4 natively or queue it in
+OpusClip's scheduler (Pro): upload the MP4 to OpusClip as a project with `skipSlicing` so it stays one whole clip,
+check the preview (your default brand template must not add a second caption layer), then schedule it. OpusClip
+charges 1 credit per minute uploaded and 3 credits per X post. Confirm the account before every post. Log every
+post (section 13).
 
 ## 9. Daily schedule (adjust to [TIME ZONE])
 

@@ -217,7 +217,7 @@ on your Claude plan and some AI Producer steps can use OpusClip credits. The ski
 **What does the export look like?** One MP4 per project, up to 1080p and 30 fps, 9:16 here. The editable project link
 is the default delivery; the MP4 is rendered when you ask for it.
 
-**Does it post for me?** No. Nothing here posts, schedules, joins campaigns or signs in anywhere for you.
+**Does it post for me?** No. Nothing here posts, schedules, joins campaigns or signs in anywhere for you. To queue your exports, upload them to [OpusClip](https://www.opus.pro)'s scheduler (Pro).
 
 **The install said `dependency "aip@ai-producer-plugins" was not installed`.** Add AI Producer's marketplace first
 (Quick start, step 1), then run the install again: with that marketplace added, Claude Code installs `aip` for you
